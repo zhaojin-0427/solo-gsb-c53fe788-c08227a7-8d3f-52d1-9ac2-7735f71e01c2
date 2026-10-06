@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.tools/
+tests/fixtures/
+tests/fixtures_interleaved/
+*.tmp
+.venv/

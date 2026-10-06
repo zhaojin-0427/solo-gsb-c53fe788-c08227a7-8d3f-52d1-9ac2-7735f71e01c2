@@ -1,0 +1,20 @@
+services:
+  fmp4-recover:
+    build: .
+    image: fmp4-recover:latest
+    container_name: fmp4-recover
+    ports:
+      - "8000:8000"
+    environment:
+      RECOVER_JOBS_DIR: /data/jobs
+    volumes:
+      - fmp4-jobs:/data/jobs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz').status==200 else 1)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  fmp4-jobs:
