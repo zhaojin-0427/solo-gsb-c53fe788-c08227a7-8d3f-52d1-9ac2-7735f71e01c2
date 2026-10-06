@@ -1,0 +1,9 @@
+.venv
+__pycache__
+*.pyc
+.git
+tests
+/tmp
+/data
+*.mp4
+*.m4s
